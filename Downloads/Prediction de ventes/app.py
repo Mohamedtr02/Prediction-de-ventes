@@ -1,4 +1,3 @@
-# app.py
 import streamlit as st
 import pandas as pd
 import numpy as np
@@ -68,7 +67,7 @@ try:
 
     st.pyplot(fig)
 
-    # --- Tableau ---
+    # Tableau
     st.subheader("📋 Prévisions détaillées")
     display_df = forecast[["date", "yhat"]].copy()
     display_df.columns = ["Date", "Ventes prévues"]

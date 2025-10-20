@@ -6,20 +6,20 @@ import os
 # Créer le dossier data
 os.makedirs("data", exist_ok=True)
 
-# 1. Plage de dates : 2 ans
+# Plage de dates : 2 ans
 start_date = datetime(2023, 1, 1)
 end_date = datetime(2024, 12, 31)
 dates = pd.date_range(start=start_date, end=end_date, freq='D')
 date_df = pd.DataFrame({"date": dates})
 
-# 2. Produits
+# Produits
 products = [
     {"product_id": "P001", "category": "Électronique", "base_sales": 80, "stock_init": 2000},
     {"product_id": "P002", "category": "Électronique", "base_sales": 60, "stock_init": 1500},
     {"product_id": "P003", "category": "Maison", "base_sales": 100, "stock_init": 2500},
 ]
 
-# 3. Jours fériés en France (2023–2024)
+#Jours fériés en France (2023–2024)
 french_holidays = {
     "2023-01-01", "2023-04-10", "2023-05-01", "2023-05-08", "2023-05-18",
     "2023-05-29", "2023-07-14", "2023-08-15", "2023-11-01", "2023-11-11", "2023-12-25",
@@ -31,7 +31,7 @@ holidays_df = pd.DataFrame({
     "holiday_name": "Jour férié"
 })
 
-# 4. Génération météo
+#Génération météo
 np.random.seed(42)
 weather_data = []
 for date in dates:
@@ -44,7 +44,7 @@ for date in dates:
 
 weather_df = pd.DataFrame(weather_data)
 
-# 5. Génération des ventes + stock
+#Génération des ventes + stock
 all_sales = []
 
 for prod in products:
@@ -87,7 +87,7 @@ for prod in products:
     
     all_sales.append(df[["date", "product_id", "category", "sales", "stock"]])
 
-# 6. Sauvegarde
+#Sauvegarde
 sales_full = pd.concat(all_sales, ignore_index=True)
 sales_full.to_csv("data/sales_data.csv", index=False)
 weather_df.to_csv("data/weather.csv", index=False)

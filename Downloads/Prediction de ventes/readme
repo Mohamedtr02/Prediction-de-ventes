@@ -1,0 +1,151 @@
+# 📈 Prévision des Ventes par Produit et Saison
+
+Ce projet prédit les ventes futures d’un produit en tenant compte :
+- De l’**historique des ventes**
+- Des **effets saisonniers** (mois, jour de la semaine, etc.)
+- De **variables externes** : promotions, jours fériés, météo
+- Du **niveau de stock** (avec alertes de rupture)
+
+Le modèle est déployé via un **dashboard interactif** réalisé avec Streamlit.
+
+---
+
+## 🛠️ Technologies utilisées
+
+- **Python** : langage principal
+- **Pandas** : manipulation des données
+- **scikit-learn** : évaluation du modèle (MAE, RMSE)
+- **XGBoost** : algorithme de prédiction performant
+- **matplotlib + seaborn** : visualisation avancée
+- **Streamlit** : interface web interactive
+
+> ✅ **Pas de Prophet** → solution stable sous Windows (y compris Python 3.13)
+
+---
+
+## 📁 Structure du projet
+├── data/
+│ ├── sales_data.csv # Ventes historiques + stock
+│ ├── weather.csv # Données météo (température, pluie)
+│ └── holidays.csv # Jours fériés
+├── features/
+│ └── build_features.py # Fusion et ingénierie des données
+├── models/
+│ └── xgboost_model.py # Entraînement + prévision multi-pas
+├── app.py # Dashboard Streamlit
+├── requirements.txt # Dépendances
+└── README.md
+
+---
+
+## 🚀 Installation et lancement
+
+### 1. Cloner ou télécharger le projet
+
+### 2. Installer les dépendances
+```powershell
+pip install -r requirements.txt 
+
+pip install -r requirements.txt
+📖 README.md
+markdown
+
+
+# 📈 Prévision des Ventes par Produit et Saison
+
+Ce projet prédit les ventes futures d’un produit en tenant compte :
+- De l’**historique des ventes**
+- Des **effets saisonniers** (mois, jour de la semaine, etc.)
+- De **variables externes** : promotions, jours fériés, météo
+- Du **niveau de stock** (avec alertes de rupture)
+
+Le modèle est déployé via un **dashboard interactif** réalisé avec Streamlit.
+
+---
+
+## 🛠️ Technologies utilisées
+
+- **Python** : langage principal
+- **Pandas** : manipulation des données
+- **scikit-learn** : évaluation du modèle (MAE, RMSE)
+- **XGBoost** : algorithme de prédiction performant
+- **matplotlib + seaborn** : visualisation avancée
+- **Streamlit** : interface web interactive
+
+> ✅ **Pas de Prophet** → solution stable sous Windows (y compris Python 3.13)
+
+---
+
+## 📁 Structure du projet
+
+.
+├── data/
+│ ├── sales_data.csv # Ventes historiques + stock
+│ ├── weather.csv # Données météo (température, pluie)
+│ └── holidays.csv # Jours fériés
+├── features/
+│ └── build_features.py # Fusion et ingénierie des données
+├── models/
+│ └── xgboost_model.py # Entraînement + prévision multi-pas
+├── app.py # Dashboard Streamlit
+├── requirements.txt # Dépendances
+└── README.md
+
+
+## 🚀 Installation et lancement
+
+### 1. Cloner ou télécharger le projet
+
+### 2. Installer les dépendances
+
+```powershell
+pip install -r requirements.txt
+3. Générer les données synthétiques (optionnel)
+Si vous n’avez pas de données, exécutez le script fourni (generate_synthetic_data.py) pour créer un jeu réaliste dans data.
+
+4. Lancer le dashboard
+
+python -m streamlit run app.py
+⚠️ Ne pas utiliser streamlit run app.py directement sous Windows si la commande n’est pas reconnue.
+Utilisez toujours:
+python -m streamlit run app.py. 
+
+📊 Fonctionnalités du dashboard
+Sélection d’un produit ou d’une catégorie
+Choix de l’horizon de prévision (1 à 90 jours)
+Définition d’un seuil d’alerte de stock
+Affichage :
+Des ventes historiques et prévues
+Du stock actuel et projeté
+Des métriques de performance (MAE, RMSE)
+D’un graphique élégant (matplotlib + seaborn)
+Alertes visuelles en cas de risque de rupture
+📈 Modèle de prédiction
+Basé sur XGBoost (gradient boosting)
+Features :
+Saisonnalité (mois, trimestre, weekend)
+Variables décalées (lags : 1j, 7j, 14j)
+Météo, jours fériés, promotions
+Prévision multi-pas (itérative, avec mise à jour des lags)
+Évaluation sur les 14 derniers jours via scikit-learn
+📝 Notes
+Le projet fonctionne sans connexion internet
+Les données synthétiques incluent :
+2 ans de ventes (2023–2024)
+3 produits, 2 catégories
+Jours fériés français
+Météo simulée
+Promotions aléatoires
+Gestion de stock
+
+📬 Auteur: Zie Mohamed Lamine TRAORE
+Projet réalisé avec ❤️ en Python
+
+## ✅ Prochaines étapes
+
+1. Enregistrez `requirements.txt` et `README.md` à la racine de votre projet (`projet 1/`)
+2. Lancez :
+   ```powershell
+   pip install -r requirements.txt
+   python -m streamlit run app.py
+

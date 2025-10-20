@@ -1,4 +1,3 @@
-# features/build_features.py (corrigé)
 import pandas as pd
 
 def load_and_merge_data():

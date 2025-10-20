@@ -1,4 +1,3 @@
-# models/xgboost_model.py
 import pandas as pd
 import numpy as np
 from xgboost import XGBRegressor
@@ -54,7 +53,7 @@ def train_xgboost_model(product_id="P001", forecast_days=30):
     )
     model.fit(X, y)
 
-    # 🔍 Évaluation avec scikit-learn (sur les 14 derniers jours)
+    # Évaluation avec scikit-learn (sur les 14 derniers jours)
     eval_start = max(0, len(X) - 14)
     if eval_start < len(X) - 1:
         X_eval = X.iloc[eval_start:]
@@ -65,7 +64,7 @@ def train_xgboost_model(product_id="P001", forecast_days=30):
     else:
         mae, rmse = 0, 0  # pas assez de données pour évaluer
 
-    # --- Prévision multi-pas ---
+    #Prévision multi-pas
     last_date = df["date"].iloc[-1]
     future_dates = pd.date_range(start=last_date + pd.Timedelta(days=1), periods=forecast_days)
     future_df = pd.DataFrame({"date": future_dates})
